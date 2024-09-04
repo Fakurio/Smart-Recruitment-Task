@@ -18,7 +18,9 @@ function App() {
     >
       {isLoading && <CircularProgress size={60} />}
       {error && <AlertBox text="Error while fetching users" />}
-      {filteredUsers && <UsersTable data={filteredUsers} />}
+      {!isLoading && !error && filteredUsers && (
+        <UsersTable data={filteredUsers} />
+      )}
     </Container>
   );
 }
